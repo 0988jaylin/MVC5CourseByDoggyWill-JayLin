@@ -16,19 +16,17 @@ namespace MVC5Course.Models
 
             return this.All().FirstOrDefault(p => p.ClientId == id);
         }
-
-        public Client Delete(Client client)
+        
+        public void Delete(Client client)
         {
             client.IsDeleted = true;
 
-            foreach (var item in client.Order.ToList())
+            var db = ((FabricsEntities)this.UnitOfWork.Context);
+            foreach (var item in db.Order.ToList())
             {
-                ((FabricsEntities)this.UnitOfWork.Context).OrderLine.RemoveRange(item.OrderLine);
+                db.OrderLine.RemoveRange(item.OrderLine);
             }
-
-            ((FabricsEntities)this.UnitOfWork.Context).Order.RemoveRange(client.Order);
-
-            return client;
+            db.Order.RemoveRange(client.Order);
         }
 	}
 
