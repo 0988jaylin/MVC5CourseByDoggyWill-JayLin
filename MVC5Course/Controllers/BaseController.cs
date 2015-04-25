@@ -7,7 +7,7 @@ using MVC5Course.Models;
 
 namespace MVC5Course.Controllers
 {
-    public class BaseController : Controller
+    public abstract class BaseController : Controller
     {
         protected FabricsEntities db = new FabricsEntities();
         protected ClientRepository clientRepo = RepositoryHelper.GetClientRepository();

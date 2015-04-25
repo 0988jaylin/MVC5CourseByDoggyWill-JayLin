@@ -12,7 +12,6 @@ namespace MVC5Course
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            routes.IgnoreRoute("Base/{action}");
 
             routes.MapRoute(
                 name: "Default",
