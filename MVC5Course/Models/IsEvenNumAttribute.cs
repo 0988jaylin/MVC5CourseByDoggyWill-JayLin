@@ -16,17 +16,25 @@ namespace MVC5Course.Models
 
         public override bool IsValid(object value)
         {
-            bool result = true;
+            if (value == null)
+            {
+                return true;
+            }
 
-            double number;
-            if (double.TryParse(value.ToString(), out number))
+            int number;
+            if (int.TryParse(value.ToString(), out number))
             {
                 if (number % 2 != 0)
                 {
-                    result = false;
+                    return false;
                 }
+
+                return true;
             }
-            return base.IsValid(result);
+            else
+            { 
+                return false;
+            }
         }
     }
 }
