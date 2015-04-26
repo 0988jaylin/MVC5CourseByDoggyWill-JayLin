@@ -14,10 +14,19 @@ namespace MVC5Course.Controllers
             return View();
         }
 
-        [HandleError]
-        public ActionResult ShowError()
+        [HandleError(Master="", ExceptionType=typeof(ArgumentException), View="Error.Argument")]
+        public ActionResult ShowError(string s = "")
         {
-            throw new Exception("Error Occured");
+            if (s == "")
+            {
+
+                throw new Exception("No Exception");
+            }
+            else
+            {
+                throw new ArgumentException();
+            }
+
             return View();
         }
     }
