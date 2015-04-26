@@ -5,3 +5,19 @@
 
 <h2>View1</h2>
 
+<button onclick="getdata()">Get JSON from Product</button>
+<div id="body">
+</div>
+
+<script>
+    function getdata()
+    {
+        $.getJSON("/AR/Json1", null, function (data) {
+            console.log(data);
+            for (var item in data) {
+                document.getElementById("body").innerHTML += data[item]["ProductName"];
+            }
+                
+        });
+    }
+</script>
