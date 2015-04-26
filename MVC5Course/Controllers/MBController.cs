@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using MVC5Course.Models;
@@ -69,6 +70,61 @@ namespace MVC5Course.Controllers
         public ActionResult Form3(FormCollection item)
         {
             return Content(item["Username"] + ":" + item["Age"]);
+        }
+
+
+        public ActionResult Complex3()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Complex3([Bind(Prefix="item1")] SimpleViewModel item)
+        {
+            return Content("complex3: item:"+item.Username);
+        }
+
+        public ActionResult Complex4()
+        {
+            var data = from p in db.Client
+                       select new SimpleViewModel()
+                       {
+                           Username = p.FirstName,
+                           Age = p.ClientId
+                       };
+            return View(data.Take(10));
+        }
+
+        [HttpPost]
+        public ActionResult Complex4(List<SimpleViewModel> item)
+        {
+            StringBuilder l_sb = new StringBuilder();
+
+            foreach (var x in item)
+            {
+                l_sb.AppendLine(x.Username + ":" + x.Age);
+            }
+
+            // 請下中斷點檢查 item 的內容
+            return Content(l_sb.ToString());
+        }
+
+
+        public ActionResult Complex5()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Complex5(string xx)
+        {
+            var item = new SimpleViewModel();
+            if(TryUpdateModel<SimpleViewModel>(item))
+            {
+                return RedirectToAction("Complex5");
+            }
+
+            return View(item);
         }
     }
 }
