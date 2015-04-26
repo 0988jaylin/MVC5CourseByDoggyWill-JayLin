@@ -1,0 +1,62 @@
+﻿@model MVC5Course.Models.SimpleViewModel
+
+@{
+    ViewBag.Title = "Form2";
+}
+
+<h2>Form2</h2>
+
+
+@using (Html.BeginForm())
+{
+    <h4>Form1</h4>
+    <hr />
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="item1.Username">Username</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" data-val="true" data-val-required="The Username field is required." id="item1.Username" name="item1.Username" type="text" value="" />
+            <span class="field-validation-valid text-danger" data-valmsg-for="item1.Username" data-valmsg-replace="true"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="item1.Age">Age</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" data-val="true" data-val-number="欄位 Age 必須是數字。" data-val-required="The Age field is required." id="item1.Age" name="item1.Age" type="number" value="" />
+            <span class="field-validation-valid text-danger" data-valmsg-for="item1.Age" data-valmsg-replace="true"></span>
+        </div>
+    </div>
+    <h4>Form2</h4>
+    <hr />
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="item2.Username">Username</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" data-val="true" data-val-required="The Username field is required." id="item2.Username" name="item2.Username" type="text" value="" />
+            <span class="field-validation-valid text-danger" data-valmsg-for="item2.Username" data-valmsg-replace="true"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="item2.Age">Age</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" data-val="true" data-val-number="欄位 Age 必須是數字。" data-val-required="The Age field is required." id="item2.Age" name="item2.Age" type="number" value="" />
+            <span class="field-validation-valid text-danger" data-valmsg-for="item2.Age" data-valmsg-replace="true"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

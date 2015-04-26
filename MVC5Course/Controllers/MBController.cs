@@ -36,5 +36,39 @@ namespace MVC5Course.Controllers
             ViewBag.hello3 = Session["hello3"];
             return View();
         }
+
+        public ActionResult Form1()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Form1(string username, int age)
+        {
+            return Content(username + ":" + age);
+        }
+
+        public ActionResult Form2()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Form2(SimpleViewModel item1, SimpleViewModel item2)
+        {
+            return Content("item1 = " +item1.Username + ":" + item1.Age + ". item2 = " + item2.Username + ":" + item2.Age);
+        }
+
+
+        public ActionResult Form3()
+        {
+            return View("Form1");
+        }
+
+        [HttpPost]
+        public ActionResult Form3(FormCollection item)
+        {
+            return Content(item["Username"] + ":" + item["Age"]);
+        }
     }
 }
