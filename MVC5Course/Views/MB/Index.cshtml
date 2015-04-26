@@ -1,0 +1,12 @@
+﻿@model MVC5Course.Models.Client
+
+
+
+Client =  @Model.FirstName
+<br />
+
+@{
+    var p = @ViewBag.Product as MVC5Course.Models.Product;
+}
+
+Product = @p.ProductName

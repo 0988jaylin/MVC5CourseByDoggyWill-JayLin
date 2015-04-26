@@ -189,6 +189,7 @@
     <Compile Include="Controllers\CRUDController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MBController.cs" />
     <Compile Include="Models\IsEvenNumAttribute.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
@@ -403,6 +404,8 @@
     <Content Include="Views\AR\Index.cshtml" />
     <Content Include="Views\AR\View1.cshtml" />
     <Content Include="Views\AR\JSAlert.cshtml" />
+    <Content Include="Views\MB\Index.cshtml" />
+    <Content Include="Views\MB\TempData2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
