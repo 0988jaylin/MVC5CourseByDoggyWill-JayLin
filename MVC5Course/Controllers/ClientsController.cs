@@ -26,10 +26,21 @@ namespace MVC5Course.Controllers
 
         [Logger]
         // GET: Clients
-        public ActionResult Index()
+        public ActionResult Index(string gender = "")
         {
-            //var client = db.Client.Include(c => c.Occupation).Take(10);
             var client = clientRepo.All().Take(10);
+
+            if (!string.IsNullOrEmpty(gender))
+            {
+                client = clientRepo.SearchByGender(gender).Take(10);
+            }
+
+            var genderList = new List<SelectListItem>();
+            genderList.Add(new SelectListItem() { Value = "M", Text = "男性" });
+            genderList.Add(new SelectListItem() { Value = "F", Text = "女性" });
+
+            ViewBag.GenderList = new SelectList(genderList, "Value", "Text", gender);
+
             return View(client.ToList());
         }
 

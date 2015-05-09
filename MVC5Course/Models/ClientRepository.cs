@@ -28,6 +28,11 @@ namespace MVC5Course.Models
             }
             db.Order.RemoveRange(client.Order);
         }
+
+        internal IQueryable<Client> SearchByGender(string gender)
+        {
+            return this.All().Where(p => p.Gender == gender);
+        }
 	}
 
 	public  interface IClientRepository : IRepository<Client>
