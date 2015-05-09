@@ -123,21 +123,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Notes)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Notes)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.Occupation.OccupationName)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Occupation.OccupationName)
         </dd>
+        <dt>
+            Order List
+        </dt>
 
+        <dd>
+            @Html.Action("Index", "Orders", new { clientId = Model.ClientId })
+        </dd>
     </dl>
 </div>
 <p>
