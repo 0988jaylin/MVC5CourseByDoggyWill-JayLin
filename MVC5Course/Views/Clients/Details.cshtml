@@ -134,7 +134,8 @@
         </dt>
 
         <dd>
-            @Html.Action("Index", "Orders", new { clientId = Model.ClientId })
+            @*@Html.Action("Index", "Orders", new { clientId = Model.ClientId })*@
+            @Html.Partial("../Orders/Index", Model.Order.ToList())
         </dd>
     </dl>
 </div>
