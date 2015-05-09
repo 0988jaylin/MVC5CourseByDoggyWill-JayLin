@@ -1,0 +1,36 @@
+﻿Test
+
+@DateTime.Now
+
+@if (DateTime.Now.Year == 2015)
+{
+    @:今年是2015年
+}
+else
+{
+    @:見鬼了
+}
+<br />
+
+@foreach (int i in ViewBag.a)
+{
+    @i
+}
+
+
+
+@foreach (int i in ViewBag.a)
+{
+    @(i + " ");
+}
+
+
+
+<ul>
+    @foreach (int i in ViewBag.a)
+    {
+        @Html.Raw("  <li>");
+        @i
+        @Html.Raw("</li>\n");
+    }
+</ul>
