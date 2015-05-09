@@ -1,11 +1,11 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
-	
+
 namespace MVC5Course.Models
-{   
-	public  class ClientRepository : EFRepository<Client>, IClientRepository
-	{
+{
+    public class ClientRepository : EFRepository<Client>, IClientRepository
+    {
         public override IQueryable<Client> All()
         {
             return base.All().Where(p => p.IsDeleted == false);
@@ -16,7 +16,7 @@ namespace MVC5Course.Models
 
             return this.All().FirstOrDefault(p => p.ClientId == id);
         }
-        
+
         public void Delete(Client client)
         {
             client.IsDeleted = true;
@@ -33,10 +33,22 @@ namespace MVC5Course.Models
         {
             return this.All().Where(p => p.Gender == gender);
         }
-	}
 
-	public  interface IClientRepository : IRepository<Client>
-	{
+        internal IQueryable<Client> SearchByCity(string city)
+        {
+            if (string.IsNullOrEmpty(city))
+            {
+                return this.All();
+            }
+            else
+            {
+                return this.All().Where(p => p.City == city);
+            }
+        }
+    }
 
-	}
+    public interface IClientRepository : IRepository<Client>
+    {
+
+    }
 }
