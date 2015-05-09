@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using MVC5Course.ActionFilters;
 using MVC5Course.Models;
 
 namespace MVC5Course.Controllers
@@ -23,6 +24,7 @@ namespace MVC5Course.Controllers
             return View("LoginResult", data);
         }
 
+        [Logger]
         // GET: Clients
         public ActionResult Index()
         {
