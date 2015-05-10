@@ -10,13 +10,13 @@
 <div id="now"></div>
 
 
-@Ajax.ActionLink("取得JSON", "GetJson", new AjaxOptions()
+@Ajax.ActionLink("取得JSON", "GetJson", null, new AjaxOptions()
 {
     OnSuccess = "getResult",
     HttpMethod = "POST",
     Confirm = "確定要讀取JSON?",
     LoadingElementId = "loadingImg"
-})
+}, new { @class = "btn" })
 
 
 

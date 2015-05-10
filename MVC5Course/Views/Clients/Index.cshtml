@@ -1,6 +1,11 @@
 ﻿@model IEnumerable<Client>
-
+@using PagedList
+@using PagedList.Mvc
 @{
+    if (IsAjax)
+    {
+        Layout = null;
+    }
     ViewBag.Title = "Index";
 }
 
@@ -67,5 +72,10 @@
     }
 
 </table>
+@{
+    var data = Model as IPagedList<Client>;
+}
+
+@Html.PagedListPager(data, (p) => Url.Action("Index", new { pageNo = p, city = ViewBag.SelectedCity }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing("Main"))
 
 <div id="OrderDetails"></div>
