@@ -1,10 +1,29 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
 
-@Ajax.ActionLink("取得時間", "GetTime", new AjaxOptions() { UpdateTargetId="now"})
+@Ajax.ActionLink("取得時間", "GetTime", new AjaxOptions() { UpdateTargetId = "now" })
 
+<img id="loadingImg" src="http://www.ajaxload.info/cache/FF/FF/FF/24/8B/F1/7-0.gif" style="display:none" />
 <div id="now"></div>
+
+
+@Ajax.ActionLink("取得JSON", "GetJson", new AjaxOptions()
+{
+    OnSuccess = "getResult",
+    HttpMethod = "POST",
+    Confirm = "確定要讀取JSON?",
+    LoadingElementId = "loadingImg"
+})
+
+
+
+<script>
+    function getResult(data) {
+        console.log("ok");
+        alert(data.result);
+    }
+
+</script>

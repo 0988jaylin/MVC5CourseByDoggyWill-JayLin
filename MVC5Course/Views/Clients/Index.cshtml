@@ -59,7 +59,8 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ClientId }) |
                 @*@Html.ActionLink("Details", "Details", new { id = item.ClientId }) |*@
-                @Ajax.ActionLink("Details", "Index", "Orders", new { clientId= item.ClientId }, new AjaxOptions() { UpdateTargetId = "OrderDetails" })
+                @*@Ajax.ActionLink("Details", "Index", "Orders", new { clientId= item.ClientId }, new AjaxOptions() { UpdateTargetId = "OrderDetails" })*@
+                @Ajax.ActionLink("Details", "Details", new { id = item.ClientId }, new AjaxOptions() { UpdateTargetId = "OrderDetails" })
                 @Html.ActionLink("Delete", "Delete", new { id = item.ClientId })
             </td>
         </tr>
