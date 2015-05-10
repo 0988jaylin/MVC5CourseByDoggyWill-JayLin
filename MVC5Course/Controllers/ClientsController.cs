@@ -9,7 +9,6 @@ using System.Web.Mvc;
 using MVC5Course.ActionFilters;
 using MVC5Course.Models;
 using PagedList;
-using PagedList.Mvc;
 
 namespace MVC5Course.Controllers
 {
