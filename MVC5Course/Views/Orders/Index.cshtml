@@ -1,5 +1,8 @@
 ﻿@model IEnumerable<MVC5Course.Models.Order>
-
+@if (IsAjax)
+{
+    Layout = null;
+}
 @{
     ViewBag.Title = "Index";
 }
